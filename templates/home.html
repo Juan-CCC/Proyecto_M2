@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Juan Carlos Cifuentes Cruz 9º B</h1>
+    <img src="{{ url_for('static', filename='images/gato.jpg') }}" alt="gato">
+    
+    <form action="/submit" method="POST">
+        <label for="quote">Cita Medica:</label>
+        <input type="text" id="quote" name="quote">
+        <label for="author">Paciente:</label>
+        <input type="text" id="author" name="author">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div class="citation-container">
+        {% if quotes %}
+            <ul>
+                {% for quote, author in quotes %}
+                    <li>
+                        <p>{{ quote }}</p>
+                        <footer>- {{ author }}</footer>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
