@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clasificador de Insectos</title>
+    <script>
+        function clasificarInsecto(event) {
+            event.preventDefault();
+            const year = document.getElementById('year').value;
+            const transmission = document.getElementById('transmission').value;
+            const engine = document.getElementById('engine').value;
+            const seats = document.getElementById('seats').value;
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `year=${year}&transmission=${transmission}&engine=${engine}&seats=${seats}`,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('resultado').innerText = 'Error: ' + data.error;
+                } else {
+                    document.getElementById('resultado').innerText = 'El Precio es de: $' + data.categoria;
+                }
+                
+            })
+            .catch(error => {
+                document.getElementById('resultado').innerText = 'Error en la solicitud.';
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Clasificador de Insectos</h1>
+    <form id="formulario" onsubmit="clasificarInsecto(event)">
+        <label for="year">Año del automovil:</label>
+        <input type="text" id="year" name="year"><br><br>
+        <label for="transmission">Transmision:</label>
+        <input type="text" id="transmission" name="transmission"><br><br>
+        <label for="engine">Motor:</label>
+        <input type="text" id="engine" name="engine"><br><br>
+        <label for="seats">Asientos:</label>
+        <input type="text" id="seats" name="seats"><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>
