@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clasificador de Insectos</title>
+    <title>Precios de Autos Usados</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
     <script>
         function clasificarInsecto(event) {
             event.preventDefault();
@@ -36,25 +37,28 @@
     </script>
 </head>
 <body>
-    <h1>Precios de Autos Usados</h1>
-    <form id="formulario" onsubmit="clasificarInsecto(event)">
-        <label for="Year">Año del automovil:</label>
-        <input type="text" id="Year" name="Year"><br><br>
-        <label for="Fuel_Type">Año del automovil:</label>
-        <input type="text" id="Fuel_Type" name="Fuel_Type"><br><br>
-        <label for="Transmission">Transmission:</label>
-            <select name="Transmission" id="Transmission" required>
-                <option value="Manual">Manual</option>
-                <option value="Automatic">Automatic</option>
-            </select><br>
-        <label for="Mileage">Motor:</label>
-        <input type="text" id="Mileage" name="Mileage"><br><br>
-        <label for="Engine">Motor:</label>
-        <input type="text" id="Engine" name="Engine"><br><br>
-        <label for="Seats">Asientos:</label>
-        <input type="text" id="Seats" name="Seats"><br><br>
-        <input type="submit" value="Enviar">
-    </form>
-    <p id="resultado"></p>
+    <div class="container">
+        <h1>Precios de Autos Usados</h1>
+        <form id="formulario" onsubmit="clasificarInsecto(event)">
+            <label for="Year">Año del automovil:</label>
+            <input type="text" id="Year" name="Year">
+            <label for="Fuel_Type">Año del automovil:</label>
+            <input type="text" id="Fuel_Type" name="Fuel_Type">
+            <label for="Transmission">Transmission:</label>
+                <select name="Transmission" id="Transmission" required>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select><br>
+            <label for="Mileage">Motor:</label>
+            <input type="text" id="Mileage" name="Mileage">
+            <label for="Engine">Motor:</label>
+            <input type="text" id="Engine" name="Engine">
+            <label for="Seats">Asientos:</label>
+            <input type="text" id="Seats" name="Seats">
+            <input type="submit" value="Enviar">
+        </form>
+        <p id="resultado"></p>
+    </div>
+    
 </body>
 </html>

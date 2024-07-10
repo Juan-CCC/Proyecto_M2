@@ -1,23 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    align-items: center;
+    height: 100vh;
+    overflow: auto;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 15px;
 }
 
 h1 {
     color: #333;
-}
-
-img {
-    width: 100px;
-    height: auto; /* Mantener la relación de aspecto */
-    margin-bottom: 20px;
+    
 }
 
 form {
@@ -25,83 +27,47 @@ form {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    width: 300px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    color: #555;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
     border-radius: 4px;
+    box-sizing: border-box;
 }
 
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #28a745;
     color: white;
-    padding: 10px 15px;
+    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
     font-size: 16px;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #218838;
 }
 
-.citation-container {
-    width: 80%;
-    max-width: 300px;
-    height: 200px; /* Altura fija */
-    overflow-y: auto; /* Desplazamiento vertical */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+#resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
 }
 
-blockquote {
-    background: #f9f9f9;
-    border-left: 10px solid #ccc;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
-}
-
-blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.25em;
-    vertical-align: -0.4em;
-}
-
-blockquote p {
-    display: inline;
-}
-
-footer {
-    text-align: right;
-    color: #777;
-    font-size: 0.9em;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-    margin-bottom: 1em;
-}
