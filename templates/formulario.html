@@ -5,17 +5,19 @@
     <script>
         function clasificarInsecto(event) {
             event.preventDefault();
-            const year = document.getElementById('year').value;
-            const transmission = document.getElementById('transmission').value;
-            const engine = document.getElementById('engine').value;
-            const seats = document.getElementById('seats').value;
+            const Year = document.getElementById('Year').value;
+            const Fuel_Type = document.getElementById('Fuel_Type').value;
+            const Transmission = document.getElementById('Transmission').value;
+            const Mileage = document.getElementById('Mileage').value;
+            const Engine = document.getElementById('Engine').value;
+            const Seats = document.getElementById('Seats').value;
 
             fetch('/predict', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: `year=${year}&transmission=${transmission}&engine=${engine}&seats=${seats}`,
+                body: `Year=${Year}&Fuel_Type=${Fuel_Type}&Transmission=${Transmission}&Mileage=${Mileage}&Engine=${Engine}&Seats=${Seats}`,
             })
             .then(response => response.json())
             .then(data => {
@@ -34,16 +36,23 @@
     </script>
 </head>
 <body>
-    <h1>Clasificador de Insectos</h1>
+    <h1>Precios de Autos Usados</h1>
     <form id="formulario" onsubmit="clasificarInsecto(event)">
-        <label for="year">Año del automovil:</label>
-        <input type="text" id="year" name="year"><br><br>
-        <label for="transmission">Transmision:</label>
-        <input type="text" id="transmission" name="transmission"><br><br>
-        <label for="engine">Motor:</label>
-        <input type="text" id="engine" name="engine"><br><br>
-        <label for="seats">Asientos:</label>
-        <input type="text" id="seats" name="seats"><br><br>
+        <label for="Year">Año del automovil:</label>
+        <input type="text" id="Year" name="Year"><br><br>
+        <label for="Fuel_Type">Año del automovil:</label>
+        <input type="text" id="Fuel_Type" name="Fuel_Type"><br><br>
+        <label for="Transmission">Transmission:</label>
+            <select name="Transmission" id="Transmission" required>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select><br>
+        <label for="Mileage">Motor:</label>
+        <input type="text" id="Mileage" name="Mileage"><br><br>
+        <label for="Engine">Motor:</label>
+        <input type="text" id="Engine" name="Engine"><br><br>
+        <label for="Seats">Asientos:</label>
+        <input type="text" id="Seats" name="Seats"><br><br>
         <input type="submit" value="Enviar">
     </form>
     <p id="resultado"></p>
